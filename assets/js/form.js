@@ -3,6 +3,7 @@ const form = document.querySelector('form');
 const input_text = document.querySelectorAll('input[type=text]');
 const input_email = document.querySelector('input[type=email]');
 const input_number = document.querySelector('input[type=number]');
+const radio_button_location = document.querySelectorAll('input[name=location]');
 const checkbox_cu = document.querySelector('#checkbox1');
 
 form.addEventListener('submit', validate);
@@ -15,11 +16,24 @@ function validate(event) {
     event.preventDefault();
     var errors = false;
 
+    for (const radio_button of radio_button_location) {
+        if (radio_button.checked) {
+            errors = false;
+            break;
+        } else {
+            errors = true;
+            showErrorMessage(radio_button, 'Vous devez sélectionner au moins une ville');
+        }
+    }
+
     if (!checkbox_cu.checked) {
+        errors = true;
         showErrorMessage(checkbox_cu, 'Vous devez vérifier que vous acceptez les termes et conditions.');
     }
 
-    console.log('Merci pour votre inscription !');
+    if (!errors) {
+        console.log('Merci pour votre inscription !');
+    }
 }
 
 function validateText(event) {
