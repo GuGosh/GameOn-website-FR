@@ -6,6 +6,9 @@ const input_date = document.querySelector('input[type=date]');
 const input_number = document.querySelector('input[type=number]');
 const radio_button_location = document.querySelectorAll('input[name=location]');
 const checkbox_cu = document.querySelector('#checkbox1');
+const modal_content_form = document.querySelector('.modal-body.form');
+const modal_content_confirmation = document.querySelector('.modal-body.confirmation-message');
+
 
 form.addEventListener('submit', validate);
 input_text.forEach((input) => input.addEventListener('blur', (event) => {
@@ -51,7 +54,7 @@ function validate(event) {
     }
 
     if (!errors) {
-        console.log('Merci pour votre inscription !');
+        showConfirmationMessage();
     }
 }
 
@@ -109,4 +112,9 @@ function hideErrorMessage(input) {
         input.parentElement.removeAttribute('data-error');
         input.parentElement.removeAttribute('data-error-visible');
     }
+}
+
+function showConfirmationMessage() {
+    modal_content_form.style.display = 'none';
+    modal_content_confirmation.style.display = 'block';
 }

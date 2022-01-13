@@ -186,6 +186,10 @@ main {
   margin: 15px auto;
 }
 
+.modal-body.confirmation-message {
+  display: none;
+}
+
 label {
   font-family: var(--font-default);
   font-size: 17px;

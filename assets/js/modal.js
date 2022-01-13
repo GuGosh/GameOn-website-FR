@@ -23,4 +23,6 @@ function reinitForm() {
   inputs.forEach((input) => {
     hideErrorMessage(input);
   });
+  modal_content_form.style.display = 'block';
+  modal_content_confirmation.style.display = 'none';
 }
