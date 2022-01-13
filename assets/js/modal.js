@@ -3,7 +3,7 @@ const modalbg = document.querySelector('.bground');
 const modalBtn = document.querySelector('.modal-btn');
 const formData = document.querySelectorAll('.formData');
 const closeModalBtn = document.querySelector('span.close');
-
+const inputs = document.querySelectorAll('input');
 // launch modal event
 modalBtn.addEventListener('click', launchModal);
 closeModalBtn.addEventListener('click', closeModalForm);
@@ -15,9 +15,12 @@ function launchModal() {
 
 function closeModalForm() {
   modalbg.style.display = 'none';
-  // reinitForm();
+  reinitForm();
 }
 
 function reinitForm() {
-
+  form.reset();
+  inputs.forEach((input) => {
+    hideErrorMessage(input);
+  });
 }
