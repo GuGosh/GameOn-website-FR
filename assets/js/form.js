@@ -1,9 +1,9 @@
 // DOM elements
 const form = document.querySelector('form');
 const input_text = document.querySelectorAll('input[type=text]');
-const input_email = document.querySelector('input[type=email]');
-const input_date = document.querySelector('input[type=date]');
-const input_number = document.querySelector('input[type=number]');
+const inputEmail = document.querySelector('input[type=email]');
+const inputDate = document.querySelector('input[type=date]');
+const inputNumber = document.querySelector('input[type=number]');
 const radio_button_location = document.querySelectorAll('input[name=location]');
 const checkbox_cu = document.querySelector('#checkbox1');
 const modal_content_form = document.querySelector('.modal-body.form');
@@ -14,32 +14,28 @@ form.addEventListener('submit', validate);
 input_text.forEach((input) => input.addEventListener('blur', (event) => {
     validateText(event.target);
 }));
-input_email.addEventListener('blur', (event) => {
+inputEmail.addEventListener('blur', (event) => {
     validateEmail(event.target);
 });
-input_date.addEventListener('blur', (event) => {
+inputDate.addEventListener('blur', (event) => {
     validateDate(event.target);
 })
-input_number.addEventListener('blur', (event) => {
+inputNumber.addEventListener('blur', (event) => {
     validateNumber(event.target);
 });
 
 // Submit form
 function validate(event) {
     event.preventDefault();
-    var errors = false;
 
-    input_text.forEach((input) => {
-        if (!validateText(input)) {
-            errors = true;
-        }
-    })
+    const array_input_text = Array.from(input_text);
+    let errors = array_input_text.every((element) => !validateText(element));
 
-    if (!validateEmail(input_email) | !validateDate(input_date) | !validateNumber(input_number)) {
+    if (!validateEmail(inputEmail) | !validateDate(inputDate) | !validateNumber(inputNumber)) {
         errors = true;
     }
 
-    var array_radio_button_location = Array.from(radio_button_location);
+    const array_radio_button_location = Array.from(radio_button_location);
     const condition = (element) => element.checked == true;
     if (!array_radio_button_location.some(condition)) {
         errors = true;
@@ -118,3 +114,9 @@ function showConfirmationMessage() {
     modal_content_form.style.display = 'none';
     modal_content_confirmation.style.display = 'block';
 }
+
+// validator w3C
+// check firefox
+// corrections css en mobile
+// radio button en rouge quand error
+// ajouter commentaires au dessus des fonctions

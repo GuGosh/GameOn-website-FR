@@ -255,6 +255,13 @@ input[data-error]::after {
   top: -1px;
   transition: 0.3s;
 }
+
+.formData[data-error-visible="true"] .checkbox-label .checkbox-icon,
+.formData[data-error-visible="true"] .checkbox-label .checkbox-icon {
+  border: 2px solid #fe142f;
+}
+
+
 .checkbox-label .checkbox-icon::after,
 .checkbox2-label .checkbox-icon::after {
   content: "";
@@ -286,6 +293,11 @@ input[data-error]::after {
   border: 0;
   background: #c4c4c4;
 }
+
+.formData[data-error-visible="true"] .checkbox2-label .checkbox-icon {
+  border: 1px solid #fe142f;
+}
+
 .checkbox2-label .checkbox-icon::after {
   width: 7px;
   height: 4px;
