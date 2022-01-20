@@ -151,7 +151,7 @@ function hideErrorMessage(input) {
  */
 function showConfirmationMessage() {
     modal_content_form.style.display = 'none';
-    modal_content_confirmation.style.display = 'block';
+    modal_content_confirmation.style.display = 'flex';
 }
 
 // validator w3C

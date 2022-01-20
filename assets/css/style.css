@@ -51,7 +51,7 @@ img {
   font-family: Roboto, sans-serif;
 }
 
-.topnav a:hover {
+/* .topnav a:hover {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
@@ -63,10 +63,14 @@ img {
   color: #ffffff;
   border-radius: 15px;
   text-decoration: underline;
-}
+}**/
 
 .topnav .icon {
   display: none;
+}
+
+.topnav .fa.fa-bars {
+  color: #ff0000;
 }
 
 @media screen and (max-width: 768px) {
@@ -188,6 +192,26 @@ main {
 
 .modal-body.confirmation-message {
   display: none;
+}
+
+.modal-body.confirmation-message {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+}
+
+.modal-body.confirmation-message p {
+  flex: 1;
+  flex-flow: column-reverse;
+  margin-top: 30%;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.modal-body.confirmation-message button.btn-signup {
+  margin-top: 0;
 }
 
 label {
@@ -528,6 +552,13 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+  }
+}
+
+@media screen and (max-width:768px){
+  .bground {
+    background: none;
+    top: 50px;
   }
 }
 
