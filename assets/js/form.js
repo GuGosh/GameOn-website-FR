@@ -9,7 +9,7 @@ const checkbox_cu = document.querySelector('#checkbox1');
 const modal_content_form = document.querySelector('.modal-body.form');
 const modal_content_confirmation = document.querySelector('.modal-body.confirmation-message');
 
-
+// launch form event
 form.addEventListener('submit', validate);
 input_text.forEach((input) => input.addEventListener('blur', (event) => {
     validateText(event.target);
@@ -24,7 +24,11 @@ inputNumber.addEventListener('blur', (event) => {
     validateNumber(event.target);
 });
 
-// Submit form
+/**
+ * Validate form
+ * @param {*} event 
+ * @returns {boolean}
+ */
 function validate(event) {
     event.preventDefault();
 
@@ -54,6 +58,11 @@ function validate(event) {
     }
 }
 
+/**
+ * Validate text format
+ * @param {*} dom_element 
+ * @returns {boolean}
+ */
 function validateText(dom_element) {
     var input_value = dom_element.value.trim();
     if (input_value.length < 2) {
@@ -65,6 +74,11 @@ function validateText(dom_element) {
     }
 }
 
+/**
+ * Validate email format
+ * @param {*} dom_element 
+ * @returns {boolean}
+ */
 function validateEmail(dom_element) {
     // Si juste
     if (dom_element.value.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
@@ -77,6 +91,11 @@ function validateEmail(dom_element) {
     }
 }
 
+/**
+ * Validate date format
+ * @param {*} dom_element 
+ * @returns {boolean}
+ */
 function validateDate(dom_element) {
     if (dom_element.value.match(/^\d{4}\-\d{1,2}\-\d{1,2}$/)) {
         hideErrorMessage(dom_element);
@@ -87,6 +106,11 @@ function validateDate(dom_element) {
     }
 }
 
+/**
+ * Validate number format
+ * @param {*} dom_element 
+ * @returns {boolean}
+ */
 function validateNumber(dom_element) {
     if (dom_element.value != '' && Number.isInteger(Number(dom_element.value))) {
         hideErrorMessage(dom_element);
@@ -97,12 +121,23 @@ function validateNumber(dom_element) {
     }
 }
 
+/**
+ * Show Error Message
+ * @param {*} input 
+ * @param {string} message
+ * @returns {void}
+ */
 function showErrorMessage(input, message) {
     hideErrorMessage(input);
     input.parentElement.setAttribute('data-error', message);
     input.parentElement.setAttribute('data-error-visible', true);
 }
 
+/**
+ * 
+ * @param {*} input 
+ * @returns {void}
+ */
 function hideErrorMessage(input) {
     if (input.parentElement.hasAttribute('data-error')) {
         input.parentElement.removeAttribute('data-error');
@@ -110,6 +145,10 @@ function hideErrorMessage(input) {
     }
 }
 
+/**
+ * Show Confirmation message
+ * @returns {void}
+ */
 function showConfirmationMessage() {
     modal_content_form.style.display = 'none';
     modal_content_confirmation.style.display = 'block';
@@ -118,5 +157,3 @@ function showConfirmationMessage() {
 // validator w3C
 // check firefox
 // corrections css en mobile
-// radio button en rouge quand error
-// ajouter commentaires au dessus des fonctions
